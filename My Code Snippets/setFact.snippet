@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>setFact</Title>
+			<Shortcut>setfact</Shortcut>
+			<Description>階乗・階乗の逆元</Description>
+			<Author>chokudai</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[long[] fact; //階乗
+    long[] revFact; //階乗の逆元
+    void setFact(int N)
+    {
+        fact = new long[N];
+        fact[0] = 1;
+        for (int i = 1; i < N; i++)
+        {
+            fact[i] = fact[i - 1] * i;
+            fact[i] %= mod;
+        }
+        revFact[N - 1] = powmod(fact[N - 1], mod - 2);
+        for (int i = N - 2; i >= 0; i--)
+        {
+            revFact[i] = revFact[i + 1] * (i + 1);
+            revFact[i] %= mod;
+        }
+    }
+			$selected$ $end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

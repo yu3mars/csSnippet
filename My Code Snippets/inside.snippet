@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>inside</Title>
+			<Shortcut>inside</Shortcut>
+			<Description>2次元の内包判定を行います。</Description>
+			<Author>chokudai</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+      <Declarations>
+        <Literal>
+          <ID>H</ID>
+          <Default>H</Default>
+          <ToolTip>y軸方向の最大の長さ</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>W</ID>
+          <Default>W</Default>
+          <ToolTip>x軸方向の最大の長さ</ToolTip>
+        </Literal>
+      </Declarations>
+			<Code Language="csharp">
+        <![CDATA[bool inside(int y, int x)
+    {
+        return y >= 0 && x >= 0 && y < $H$ && x < $W$;
+    }$selected$ $end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>inside3</Title>
+			<Shortcut>inside3</Shortcut>
+			<Description>3次元の範囲内判定を行います。</Description>
+			<Author>chokudai</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+      <Declarations>
+        <Literal>
+          <ID>A</ID>
+          <Default>A</Default>
+          <ToolTip>x軸方向の最大の長さ</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>B</ID>
+          <Default>B</Default>
+          <ToolTip>y軸方向の最大の長さ</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>C</ID>
+          <Default>C</Default>
+          <ToolTip>z軸方向の最大の長さ</ToolTip>
+        </Literal>
+      </Declarations>
+			<Code Language="csharp">
+        <![CDATA[bool inside3(int x, int y, int z)
+    {
+        return x >= 0 && y >= 0 && z >= 0 && x < A && y < B && z < C;
+    }$selected$ $end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

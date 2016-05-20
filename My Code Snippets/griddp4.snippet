@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>griddp4</Title>
+			<Shortcut>griddp4</Shortcut>
+			<Description>グリッドグラフ上でDPを行う 4方向</Description>
+			<Author>chokudai</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+      <Declarations>
+        <Literal>
+          <ID>H</ID>
+          <Default>H</Default>
+          <ToolTip>y軸方向の最大の長さ</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>W</ID>
+          <Default>W</Default>
+          <ToolTip>x軸方向の最大の長さ</ToolTip>
+        </Literal>
+      </Declarations>
+			<Code Language="csharp">
+        <![CDATA[int[] dp = new int[1 << $W$];
+        dp[0] = 1;
+        for (int y = 0; y < $H$; y++)
+        {
+            for (int x = 0; x < $W$; x++)
+            {
+                for (int i = 0; i < (1 << $W$); i++)
+                {
+                    bool left = (x != 0) && ((i & 1) == 1);
+                    bool up = (y != 0) && (((i >> ($W$ - 1)) & 1) == 1);
+
+                    for (int k = 0; k < 2; k++)
+                    {
+                        //接続判定処理
+
+                        int next = ((i << 1) + k) & ((1 << $W$) - 1);
+
+                        //更新処理を挿入
+                    }
+                }
+            }
+        }$selected$ $end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

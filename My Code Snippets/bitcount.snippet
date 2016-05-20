@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>bitCount</Title>
+			<Shortcut>bitcount</Shortcut>
+			<Description>long型のbitの数をカウントします</Description>
+			<Author>Chokudai</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[    int bitCount(long x)
+    {
+        x = (x & 0x5555555555555555) + (x >> 1 & 0x5555555555555555);
+        x = (x & 0x3333333333333333) + (x >> 2 & 0x3333333333333333);
+        x = (x & 0x0f0f0f0f0f0f0f0f) + (x >> 4 & 0x0f0f0f0f0f0f0f0f);
+        x = (x & 0x00ff00ff00ff00ff) + (x >> 8 & 0x00ff00ff00ff00ff);
+        x = (x & 0x0000ffff0000ffff) + (x >> 16 & 0x0000ffff0000ffff);
+        return (int)((x & 0x00000000ffffffff) + (x >> 32 & 0x00000000ffffffff));
+    }
+
+			$selected$ $end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

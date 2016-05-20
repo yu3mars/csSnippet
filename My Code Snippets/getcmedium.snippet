@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>getCMedium</Title>
+			<Shortcut>getcmedium</Shortcut>
+			<Description>階乗の事前計算によるコンビネーションの計算　要setFact　構築O(N) 呼び出しO(1)</Description>
+			<Author>chokudai</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[long getC(int a, int b)
+    {
+        return (((fact[a] * revFact[b]) % mod) * revFact[a - b]) % mod;
+    }
+			$selected$ $end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

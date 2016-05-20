@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>bfs2</Title>
+			<Shortcut>bfs2</Shortcut>
+			<Description>グリッドグラフ上で幅優先探索を行う</Description>
+			<Author>chokudai</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+      <Declarations>
+        <Literal>
+          <ID>H</ID>
+          <Default>H</Default>
+          <ToolTip>y軸方向の最大の長さ</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>W</ID>
+          <Default>W</Default>
+          <ToolTip>x軸方向の最大の長さ</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>fy</ID>
+          <Default>fy</Default>
+          <ToolTip>y初期値</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>fx</ID>
+          <Default>fx</Default>
+          <ToolTip>x初期値</ToolTip>
+        </Literal>
+      </Declarations>
+			<Code Language="csharp">
+        <![CDATA[bool[,] used = new bool[$H$, $W$];
+        Queue<Tuple<int, int>> q = new Queue<Tuple<int, int>>();
+        used[$fy$, $fx$] = true;
+        q.Enqueue(Tuple.Create($fy$, $fx$));
+        while (q.Count > 0)
+        {
+            var now = q.Dequeue();
+            int y = now.Item1;
+            int x = now.Item2;
+            for (int k = 0; k < vy.Length; k++)
+            {
+                int ny = y + vy[k];
+                int nx = x + vx[k];
+                if (!inside(ny, nx)) continue;
+                if (used[ny, nx]) continue;
+
+                //ここに更新処理を挿入
+
+                q.Enqueue(Tuple.Create(ny, nx));
+            }
+        }$selected$ $end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
